@@ -7,6 +7,7 @@ body, main{
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
 }
 
 main{
@@ -89,11 +90,12 @@ body[data-menu-open="true"] > main > .menu-btn{
 .content{
     position: absolute;
     display: flex;
-    gap: 30px;
+    gap: 2rem;
     flex-direction: row;
     flex: 1;
-    justify-content: space-between;
-    margin-left: 15%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20%;
     top: 55%;
     transition: transform 300ms cubic-bezier(.13, .53, .38, .97);
 }
@@ -102,8 +104,8 @@ body[data-menu-open="true"] > main > .menu-btn{
     position: relative;
     height: 250px;
     width: 200px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     cursor: pointer;
 }
 .content > .card > img{
@@ -146,4 +148,35 @@ body[data-menu-open="true"] > .content{
 body[data-menu-open="false"] > .content{
     transform: translateY(0%);
     z-index: -1;
+}
+
+@media screen and (max-width: 1200px){
+    body[data-menu-open="true"] > main{
+        transform: translateX(-50%);
+    }
+    .content{
+        flex-direction: column;
+        gap: 0.5rem;
+        flex: 4;
+        top: 6%;
+        left: 50%;
+        justify-content: space-evenly;
+        margin-left: 10%;
+    }
+    .content > .card{
+        height: 120px;
+        width: 180px;
+        margin-top: 0px;
+        margin-bottom: 5px;
+    }
+    .content > .card > img{
+        height: 120px;
+        width: 180px;
+    }
+    body[data-menu-open="true"] > main > .menu-btn {
+        margin-top: 0%;
+    }
+    body[data-menu-open="false"] > main > .menu-btn {
+        transform: translateY(40vh) translateX(-20px);
+    }
 }
